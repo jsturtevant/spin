@@ -12,8 +12,10 @@ tracing = { workspace = true }
 wasmtime = { workspace = true }
 wasmtime-wasi = { workspace = true }
 wasi-common-preview1 = { workspace = true }
-system-interface = { version = "0.25.1", features = ["cap_std_impls"] }
-cap-std = "1.0.13"
+system-interface = { version = "0.26.0", features = ["cap_std_impls"] }
+cap-std = "2.0.0"
+tokio = "1.0"
+bytes = "1.0"
 
 [target.'cfg(unix)'.dependencies]
 rustix = "0.37.19"
@@ -25,3 +27,4 @@ io-extras = "0.17.1"
 tempfile = "3"
 tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread"] }
 spin-componentize = { workspace = true }
+futures = "0.3"
