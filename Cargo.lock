@@ -790,7 +790,7 @@ checksum = "2bf30c373a3bee22c292b1b6a7a26736a38376840f1af3d2d806455edf8c3899"
 dependencies = [
  "ambient-authority",
  "fs-set-times",
- "io-extras 0.18.0",
+ "io-extras",
  "io-lifetimes 2.0.2",
  "ipnet",
  "maybe-owned",
@@ -816,7 +816,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84bade423fa6403efeebeafe568fdb230e8c590a275fba2ba978dd112efcf6e9"
 dependencies = [
  "cap-primitives",
- "io-extras 0.18.0",
+ "io-extras",
  "io-lifetimes 2.0.2",
  "rustix 0.38.13",
 ]
@@ -2925,16 +2925,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7a5bbe824c507c5da5956355e86a746d82e0e1464f65d862cc5e71da70e94b2c"
 dependencies = [
  "cfg-if",
-]
-
-[[package]]
-name = "io-extras"
-version = "0.17.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d79107d6e60d78351e11f0a2dc9d0eaf304a7efb592e92603783afb8479c7d97"
-dependencies = [
- "io-lifetimes 1.0.11",
- "windows-sys 0.45.0",
 ]
 
 [[package]]
@@ -5802,7 +5792,7 @@ dependencies = [
  "cap-std",
  "crossbeam-channel",
  "futures",
- "io-extras 0.17.2",
+ "io-extras",
  "rustix 0.37.20",
  "spin-componentize",
  "system-interface",
@@ -7146,7 +7136,7 @@ dependencies = [
  "cap-std",
  "cap-time-ext",
  "fs-set-times",
- "io-extras 0.18.0",
+ "io-extras",
  "io-lifetimes 2.0.2",
  "is-terminal",
  "once_cell",
@@ -7166,7 +7156,7 @@ dependencies = [
  "bitflags 2.4.0",
  "cap-rand",
  "cap-std",
- "io-extras 0.18.0",
+ "io-extras",
  "log",
  "rustix 0.38.13",
  "thiserror",
@@ -7183,7 +7173,7 @@ source = "git+https://github.com/bytecodealliance/wasmtime?branch=release-13.0.0
 dependencies = [
  "anyhow",
  "cap-std",
- "io-extras 0.18.0",
+ "io-extras",
  "io-lifetimes 2.0.2",
  "rustix 0.38.13",
  "tokio",
@@ -7620,7 +7610,7 @@ dependencies = [
  "cap-time-ext",
  "fs-set-times",
  "futures",
- "io-extras 0.18.0",
+ "io-extras",
  "io-lifetimes 2.0.2",
  "is-terminal",
  "libc",

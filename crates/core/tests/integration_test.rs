@@ -4,6 +4,7 @@ use std::{
     time::{Duration, Instant},
 };
 
+use anyhow::Context;
 use spin_core::{
     Component, Config, Engine, HostComponent, I32Exit, Store, StoreBuilder, Trap, WasiVersion,
 };
@@ -207,8 +208,14 @@ async fn run_core_wasi_test_engine<'a>(
     let component = Component::new(engine.as_ref(), &component)?;
     let instance_pre = engine.instantiate_pre(&component)?;
     let instance = instance_pre.instantiate_async(&mut store).await?;
-    let func = instance.get_typed_func::<(), (Result<(), ()>,)>(&mut store, "run")?;
+    let func = {
+        let mut exports = instance.exports(&mut store);
 
+        let mut instance = exports
+            .instance("wasi:cli/run")
+            .context("missing the expected 'wasi:cli/run' instance")?;
+        instance.typed_func::<(), (Result<(), ()>,)>("run")?
+    };
     update_store(&mut store);
 
     func.call_async(&mut store, ())
