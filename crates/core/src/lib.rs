@@ -100,10 +100,14 @@ impl Default for Config {
         let mut pooling_config = PoolingAllocationConfig::default();
         pooling_config
             .total_component_instances(env("SPIN_WASMTIME_INSTANCE_COUNT", 1_000))
-            .max_core_instance_size(env("SPIN_WASMTIME_INSTANCE_SIZE", (10 * MB) as u32) as usize)
-            .total_tables(env("SPIN_WASMTIME_INSTANCE_TABLES", 2))
+            .max_component_instance_size(
+                env("SPIN_WASMTIME_INSTANCE_SIZE", (10 * MB) as u32) as usize
+            )
+            .max_tables_per_component(env("SPIN_WASMTIME_INSTANCE_TABLES", 2))
             .table_elements(env("SPIN_WASMTIME_INSTANCE_TABLE_ELEMENTS", 30_000))
-            .total_memories(env("SPIN_WASMTIME_INSTANCE_MEMORIES", 1))
+            .max_memories_per_component(env("SPIN_WASMTIME_INSTANCE_MEMORIES", 1))
+            .total_memories(env("SPIN_WASMTIME_TOTAL_MEMORIES", 1_000))
+            .total_tables(env("SPIN_WASMTIME_TOTAL_TABLES", 2_000))
             // Nothing is lost from allowing the maximum size of memory for
             // all instance as it's still limited through other the normal
             // `StoreLimitsAsync` accounting method too.
