@@ -38,6 +38,7 @@ world http-trigger {
 }
 
 world platform {
+  import http-types
   import config
   import postgres
   import mysql

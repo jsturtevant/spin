@@ -12,9 +12,8 @@ pub fn http_component(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
         mod __spin_http {
             struct Spin;
-            ::spin_sdk::export_reactor!(Spin);
 
-            impl ::spin_sdk::inbound_http::InboundHttp for Spin {
+            impl ::spin_sdk::inbound_http::Guest for Spin {
                 // Implement the `handler` entrypoint for Spin HTTP components.
                 fn handle_request(req: ::spin_sdk::inbound_http::Request) -> ::spin_sdk::inbound_http::Response {
                     match super::#func_name(req.try_into().expect("cannot convert from Spin HTTP request")) {
